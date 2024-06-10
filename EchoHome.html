@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECHO</title>
+    <link rel="stylesheet" href="samplestyle.css">
+    <link rel="icon" href="ECHOLOGO1.png" type="image/png">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+        }
+        .logo {
+            font-size: 2em;
+            background: linear-gradient(90deg, #ff0000, #00ff00, #0000ff);
+            -webkit-background-clip: text;
+            color: transparent;
+
+            animation: colorCycle 5s infinite;
+        }
+        .auth-buttons button {
+            background-color: #ff6347;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .auth-buttons button:hover {
+            background-color: #ff4500;
+        }
+        .hero {
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+        }
+        .hero h1 {
+            font-size: 3em;
+            margin: 0;
+        }
+        .hero p {
+            font-size: 1.2em;
+        }
+        .get-started {
+            background-color: #fff;
+            color: #ff6347;
+            border: 2px solid #ff6347;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .get-started:hover {
+            background-color: #ff6347;
+            color: white;
+        }
+        .features {
+            display: flex;
+            justify-content: space-around;
+            padding: 50px 20px;
+            background-color: #f4f4f4;
+        }
+        .feature {
+            text-align: center;
+            width: 30%;
+            transition: transform 0.3s;
+        }
+        .feature:hover {
+            transform: scale(1.05);
+        }
+        .testimonials {
+            background-color: #fff;
+            padding: 50px 20px;
+            text-align: center;
+        }
+        .testimonial {
+            margin: 20px 0;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        @media (max-width: 768px) {
+            .features {
+                flex-direction: column;
+                align-items: center;
+            }
+            .feature {
+                width: 80%;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">ECHO</div>
+        <div class="auth-buttons">
+            <button onclick="window.location.href='workspace.html';">Create Dairy</button>
+            <button onclick="window.location.href='EchoCreateNewAccount.html';">Signup</button>
+            <button onclick="window.location.href='EchoLogin.html';">Login</button>
+        </div>
+    </header>
+    <main>
+        <section class="hero">
+            <h1>Welcome to Echo Dairy</h1>
+            <p>Capture your thoughts and memories in a beautifully organized digital dairy.</p>
+            <button class="get-started" onclick="window.location.href='workspace.html';">Get Started</button>
+        </section>
+        <section class="features">
+            <div class="feature">
+                <h2>Easy to Use</h2>
+                <p>Our user-friendly interface makes it simple to create and edit your dairy entries.</p>
+            </div>
+            <div class="feature">
+                <h2>Customizable</h2>
+                <p>Personalize your dairy with custom fonts, colors, and layouts.</p>
+            </div>
+            <div class="feature">
+                <h2>Secure</h2>
+                <p>Your entries are private and secure, accessible only to you.</p>
+            </div>
+        </section>
+        <section class="testimonials">
+            <h2>Mohamed Haarish</h2>
+            <div class="testimonial">
+                <p>Developer</p>
+                <p></p>
+            </div>
+            <div class="testimonial">
+                <p>mohamedhaarish55@gmail.com</p>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>Thank you</p>
+    </footer>
+</body>
+</html>
