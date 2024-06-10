@@ -1,0 +1,213 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e3e2de;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+
+}
+
+/*logo*/
+.mylogo{
+    width:50px;
+    height: 50px;
+}
+
+
+header {
+    width: 100%;
+    background-color: #fff;
+    padding: 10px 20px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: flex-start;
+}
+
+.logo {
+    font-size: 48px;
+    font-weight: bold;
+    letter-spacing: 5px;
+    background: linear-gradient(90deg, #ff0000, #00ff00, #0000ff);
+    -webkit-background-clip: text;
+    color: transparent;
+    margin-bottom: 20px;
+    animation: colorCycle 5s infinite;
+}
+
+@keyframes colorCycle {
+    0% {
+        color: #ff0000; /* Red */
+    }
+    25% {
+        color: #00ff00; /* Green */
+    }
+    50% {
+        color: #0000ff; /* Blue */
+    }
+    75% {
+        color: #ffff00; /* Yellow */
+    }
+    100% {
+        color: #ff0000; /* Red */
+    }
+}
+
+.menu-icon {
+    font-size: 24px;
+}
+
+.container {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.quote{
+    font-size: 70px;
+}
+
+.form-container {
+    margin-top: 50px;
+}
+
+h1 {
+    margin-bottom: 10px;
+    font-size: 24px;
+}
+
+p {
+    margin-bottom: 20px;
+}
+
+p a {
+    color: grey;
+    text-decoration: none;
+}
+
+p a:hover{
+    background-color:black;
+    -webkit-background-clip: text;
+    color: transparent;
+} 
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    text-align: left;
+    margin-bottom: 5px;
+    font-size: 12px;
+}
+
+input, select {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+button {
+    padding: 10px;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    background-color: #ff6347;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+   
+}
+
+button:hover {
+    background-color: #333;
+}
+
+/*for logo ECHO*/
+.container2 {
+    text-align: center;
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.echo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.letter {
+    font-size: 2em;
+    font-weight: bold;
+    color: blue;
+    opacity: 0;
+    animation: slideIn 2s forwards;
+}
+
+.letter:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.letter:nth-child(2) {
+    animation-delay: 0.5s;
+}
+
+.letter:nth-child(3) {
+    animation-delay: 1s;
+}
+
+.letter:nth-child(4) {
+    animation-delay: 1.5s;
+}
+
+.text {
+    font-size: 1.5em;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+/**/
+.nav {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.nav a {
+    text-decoration: none;
+    color: #333;
+}
