@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ECHO Workspace</title>
-    <link rel="icon" href="files/ECHOLOGO1.png" type="image/png">
+    <link rel="icon" href="ECHOLOGO1.png" type="image/png">
     <style>
         body {
             background-color: #b5b7bc;
@@ -13,19 +13,40 @@
             margin: 0;
             padding: 0;
         }
+
+        #logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        #logo img {
+            height: 80px; /* Adjust the height as needed */
+            margin-right: 15px; /* Space between logo and text */
+        }
+
+        #logo-text {
+            font-size: 36px; /* Adjust font size as needed */
+            font-weight: bold;
+            color: #1c1e24; /* Text color */
+        }
+
         #editor {
             display: flex;
             flex-direction: column;
-            height: 100vh;
+            height: calc(100vh - 100px); /* Adjusting height to account for logo space */
             padding: 20px;
         }
+
         #toolbar {
             display: flex;
-            justify-content:space-evenly;
+            justify-content: space-evenly;
             background-color: #1c1e24;
             padding: 30px;
             border-radius: 5px;
         }
+
         #toolbar button {
             background: none;
             border: none;
@@ -35,9 +56,11 @@
             cursor: pointer;
             font-size: 16px;
         }
+
         #toolbar button:hover {
             background-color: #333;
         }
+
         #content {
             flex: 1;
             margin-top: 20px;
@@ -45,12 +68,40 @@
             border-radius: 5px;
             padding: 10px;
         }
+
         #content:focus {
             outline: none;
+        }
+
+        #downloadMenu {
+            position: relative;
+        }
+
+        #downloadOptions {
+            display: none;
+            position: absolute;
+            background-color: #1c1e24;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            border-radius: 5px;
+            padding: 10px;
+        }
+
+        #downloadOptions button {
+            width: 100%;
+            margin-top: 5px;
+        }
+
+        #downloadMenu:hover #downloadOptions {
+            display: block;
         }
     </style>
 </head>
 <body>
+    <div id="logo">
+        <img src="ECHOLOGO1.png" alt="ECHO Logo">
+        <div id="logo-text">WORKSPACE</div>
+    </div>
     <div id="editor">
         <div id="toolbar">
             <button onclick="execCmd('bold')"><b>B</b></button>
@@ -61,11 +112,19 @@
             <button onclick="execCmd('justifyLeft')">Left</button>
             <button onclick="execCmd('justifyCenter')">Center</button>
             <button onclick="execCmd('justifyRight')">Right</button>
+            <button onclick="execCmd('fontSize', prompt('Enter a size from 1 to 7', '3'))">Font Size</button>
             <input type="color" id="colorPicker" onchange="execCmd('foreColor', this.value)">
-            <button onclick="downloadAsPDF()">Download as PDF</button>
-            <button onclick="downloadAsImage()">Download as Image</button>
-            <button onclick="downloadAsWord()">Download as Word</button>
-            <button onclick="window.location.href='files/index.html';">Home</button>
+            
+            <div id="downloadMenu">
+                <button>Download As</button>
+                <div id="downloadOptions">
+                    <button onclick="downloadAsPDF()">PDF</button>
+                    <button onclick="downloadAsWord()">Word</button>
+                    <button onclick="downloadAsImage()">Image</button>
+                </div>
+            </div>
+
+            <button onclick="window.location.href='index.html';">Home</button>
         </div>
         <div id="content" contenteditable="true"></div>
     </div>
@@ -107,7 +166,10 @@
                         children: [
                             new docx.Paragraph({
                                 children: [
-                                    new docx.TextRun(content.replace(/<br>/g, "\n").replace(/<\/?[^>]+(>|$)/g, "")),
+                                    new docx.TextRun({
+                                        text: content.replace(/<br>/g, "\n").replace(/<\/?[^>]+(>|$)/g, ""),
+                                        break: 1
+                                    }),
                                 ],
                             }),
                         ],
